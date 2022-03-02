@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: spring-cloud-kafka-streams-exception
+  cloud:
+    stream:
+      function:
+        definition: processor
+      bindings:
+        processor-in-0:
+          destination: inTopic
+        processor-out-0:
+          destination: outTopic
+      kafka:
+        binder:
+          brokers: PLAINTEXT://localhost:29092
+          auto-create-topics: false
+          auto-add-partitions: false
+        streams:
+          binder:
+            configuration:
+              spring.json.use.type.headers: false
+              spring.json.trusted.packages: '*'
+              max.poll.records: 10
+              max.block.ms: 10000
+              default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+              default.value.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+            deserialization-exception-handler: sendtodlq
+            auto-create-topics: false
+            auto-add-partitions: false
+          bindings:
+            showProcessor-in-0:
+              consumer:
+                dlqName: errorTopic
+  kafka:
+    bootstrap-servers: PLAINTEXT://localhost:29092
+
+
