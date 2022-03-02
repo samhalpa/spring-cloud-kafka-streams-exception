@@ -30,7 +30,7 @@ mvn clean spring-boot:run
 
 Can run as a Spring-Boot application 
 
-
+Application creates necessary topics during the boot-up.
 A scheduled method in the MessageScheduler class sends messages to the "inTopic" in every 5 seconds.
 
 
