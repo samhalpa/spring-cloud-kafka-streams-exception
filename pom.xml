@@ -11,7 +11,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>nz.co.skytv.cam</groupId>
+    <groupId>com.test.exceptionhandler</groupId>
     <artifactId>spring-cloud-kafka-streams-exception</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-cloud-kafka-streams-exception</name>
